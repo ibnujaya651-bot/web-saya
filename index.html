@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Starting Business Marketing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 300px;
+      margin: 100px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #home {
+      display: none;
+      padding: 20px;
+    }
+    img {
+      max-width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="container" id="login">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+</div>
+
+<!-- HALAMAN UTAMA -->
+<div id="home">
+  <h2>Starting Business Marketing (Digital Marketing)</h2>
+
+  <p>Unggah gambar produk Anda:</p>
+  <input type="file" id="upload" accept="image/*" onchange="previewImage()">
+
+  <img id="preview">
+
+  <p><b>Hasil AI:</b> Produk berhasil dianalisis (simulasi AI)</p>
+
+  <button onclick="logout()">Logout</button>
+</div>
+
+<script>
+  function login() {
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if (user === "admin" && pass === "123") {
+      document.getElementById("login").style.display = "none";
+      document.getElementById("home").style.display = "block";
+    } else {
+      alert("Username atau password salah!");
+    }
+  }
+
+  function logout() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("login").style.display = "block";
+  }
+
+  function previewImage() {
+    const file = document.getElementById("upload").files[0];
+    const preview = document.getElementById("preview");
+    preview.src = URL.createObjectURL(file);
+  }
+</script>
+
+</body>
+  </html>
